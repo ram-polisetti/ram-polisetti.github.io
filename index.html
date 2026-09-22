@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ram Charan Polisetti</title>
+<style>
+  body {
+    margin: 2.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fff;
+  }
+  h1, h2 { font-family: Georgia, 'Times New Roman', serif; }
+  h1 { font-size: 1.8rem; font-weight: normal; margin: 0 0 0.25rem 0; }
+  h2 { font-size: 1.25rem; font-weight: normal; margin: 2.2rem 0 0.6rem 0; border-bottom: 1px solid #ddd; padding-bottom: 0.25rem; max-width: 75ch; }
+  p, li { max-width: 75ch; }
+  ul { padding-left: 1.4rem; }
+  li { margin-bottom: 0.55rem; }
+  a { color: #0645ad; }
+  a:visited { color: #0b0080; }
+  nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    margin: 0 -2.5rem 1.5rem -2.5rem;
+    padding: 0.5rem 0 0.5rem 2.5rem;
+  }
+  nav a { margin-right: 1.2rem; text-decoration: none; }
+  nav a:hover { text-decoration: underline; }
+  .tag { color: #555; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#projects">Projects</a>
+  <a href="#about">About</a>
+  <a href="#writing">Writing</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<h1>Ram Charan Polisetti</h1>
+<p>DBA candidate in Applied Artificial Intelligence, Belhaven University. I build open-source tooling for AI governance — bias audits, red-teaming, evidence bundles, approval registries. Indianapolis, IN.<br>
+<a href="mailto:ramcharansatyasaitej@students.belhaven.edu">ramcharansatyasaitej@students.belhaven.edu</a> &middot;
+<a target="_blank" rel="noopener" href="https://github.com/ram-polisetti">GitHub</a></p>
+
+<h2 id="projects">Projects</h2>
+<p>Open-source AI governance tooling. Everything is public on GitHub, tested, Apache-2.0.</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/vendor-diligence-kit"><strong>vendor-diligence-kit</strong></a> <span class="tag">(2026)</span><br>
+Standardized diligence for third-party AI systems: vendor intake with hashed claims, a test battery (red-team + fairness + lineage) that delegates to pinned sibling tools rather than reimplementing them, a weighted risk score, and a go/no-go written into the governance registry as the system's first approval record. In the demo, a deliberately weak vendor scores 47.1 (rejected) and the remediated version scores 95.0 (approved). 19/19 tests.</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/governance-evidence-vault"><strong>governance-evidence-vault</strong></a> <span class="tag">(2026)</span><br>
+Seals everything behind a deployed system — conformance packs, registry records, incident reports, evals — into one signed, hash-chained bundle an external auditor can verify offline, with no tooling beyond the standard library. A tampered copy is caught and reported explicitly. 31/31 tests.</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/opsaudit"><strong>opsaudit</strong></a> <span class="tag">(2025–2026)</span><br>
+Bias and disparity audit toolkit: the core audit engine (64/64 tests), a deployment gate that blocks biased models before they ship (86/86 tests), and a synthetic-data auditor (119/119 tests). The repo's own disparity gate runs on its PRs.</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/garak"><strong>garak</strong></a> <span class="tag">(2026)</span><br>
+Fork of NVIDIA's LLM vulnerability scanner with a real bug fix: <span class="tag">Buff._derive_new_attempt</span> passed <span class="tag">notes</span> and <span class="tag">detector_results</span> by reference, so sibling attempts shared mutable score state. Fixed with shallow copies. 5 new tests, 42 regression tests pass.</p>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/ai-incident-runbook"><strong>ai-incident-runbook</strong></a> <span class="tag">(2026)</span><br>
+Runbook and lifecycle tracking for AI incidents in production. 40/40 tests, with a verified five-event incident lifecycle.</p>
+
+<p>More governance tooling:</p>
+<ul>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/eval-judge-calibration">eval-judge-calibration</a> — how well LLM judges agree with human labels before trusting them in evals (46/46 tests; Cohen's kappa 0.769, single-annotator labels documented as a limitation).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/rag-eval-drift">rag-eval-drift</a> — detects RAG answer drift as documents change; removing two policy docs dropped groundedness 100% → 84.2% (16/16 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/conformance-pack">conformance-pack</a> — structured conformity evidence for high-risk AI use cases (54/54 tests; clean hiring model → conditional, biased model → no-go).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/rag-redteam">rag-redteam</a> — red-teaming harness for RAG pipelines; 4 of 6 poisoned-chunk attacks succeeded in the live demo (45/45 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/regulatory-change-watcher">regulatory-change-watcher</a> — watches AI regulation changes and flags what affects registered systems (21/21 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/ai-act-checker">ai-act-checker</a> — maps a system to EU AI Act risk tiers and deployer duties (48/48 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/disparity-monitor">disparity-monitor</a> — disparity and bias metrics for model outputs (55/55 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/model-governance-registry">model-governance-registry</a> — model records, approvals, and a stale-approval sweeper (54/54 tests after integration).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/rag-governance-demo">rag-governance-demo</a> — the first build: RAG demo with governance wired in (41/41 tests).</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/rai-monitor">rai-monitor</a> — responsible-AI signal monitoring on live systems (104/104 tests).</li>
+</ul>
+
+<p>Earlier / experimental:</p>
+<ul>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/Q3_Hackathon">Q3_Hackathon</a> — quantum hackathon work; two files licensed to Yonsei's HAIR Lab for their Parallel Quantum Instruction Dataset.</li>
+  <li><a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/QuantumAlgorithms">QuantumAlgorithms</a>, <a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/oilspill">oilspill</a>, <a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/Agent-Zero">Agent-Zero</a>, <a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/BendTheCurve">BendTheCurve</a>, <a target="_blank" rel="noopener" href="https://github.com/ram-polisetti/Expressive-Resume">Expressive-Resume</a> — earlier experiments.</li>
+</ul>
+
+<h2 id="about">About</h2>
+<p>I work on AI governance from the operator's side. Before the doctorate I spent years in supply chain analytics and applied AI — transportation network optimization at Amazon, then AI solutions and data analytics consulting at Cortracker360 (2025–2026): RAG/LLM platforms, BI and data engineering at scale. Now I'm building the unglamorous parts of governing AI systems: bias audits that run as deployment gates, red-teaming harnesses, evidence bundles an auditor can verify offline, and registries that record go/no-go decisions.</p>
+<p>Interests: responsible AI systems and pre-deployment governance; bias and disparity auditing in operational decision systems; AI policy, risk tiers, and deployer duties (EU AI Act, NIST AI RMF); red-teaming and evaluation of RAG/LLM systems; evidence, audit trails, and incident response for deployed models.</p>
+
+<h2 id="writing">Writing</h2>
+<ul>
+  <li><strong>The Gate That Says No</strong> <span class="tag">(draft, in review)</span> — essay arguing bias audits arrive after the damage, so the check should sit in the deployment pipeline as a gate that can say no.</li>
+  <li>DBA research <span class="tag">(in progress)</span> — governance of AI in operational decision systems.</li>
+</ul>
+
+<h2 id="contact">Contact</h2>
+<p>Email: <a href="mailto:ramcharansatyasaitej@students.belhaven.edu">ramcharansatyasaitej@students.belhaven.edu</a><br>
+GitHub: <a target="_blank" rel="noopener" href="https://github.com/ram-polisetti">ram-polisetti</a></p>
+
+<p class="tag">© 2026 Ram Charan Polisetti.</p>
+
+</body>
+</html>
